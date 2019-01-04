@@ -14,7 +14,7 @@ namespace WebApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.Add(new Route("Image/{*id}", new CustomRouteHandler()));
+            //routes.Add(new Route("Image/{*id}", new CustomRouteHandler()));
 
             routes.MapRoute(
                 name: "Default",

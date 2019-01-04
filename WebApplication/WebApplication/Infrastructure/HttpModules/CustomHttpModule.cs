@@ -16,24 +16,14 @@ namespace WebApplication.Infrastructure.HttpModules
         public void app_AcquireRequestState(object o, EventArgs ea)
         {
             HttpApplication httpApp = (HttpApplication)o;
-
+            
             object controller = httpApp.Context.Request.RequestContext.RouteData.Values["controller"];
             object id = httpApp.Context.Request.RequestContext.RouteData.Values["id"];
 
             if ((string.Equals(controller.ToString(), "Image", StringComparison.OrdinalIgnoreCase) && id != null))
             {
                 httpApp.Context.RemapHandler(new CustomHttpHandler());
-            }
-
-            if (controller != null)
-            {
-                httpApp.Context.Response.Write(controller.ToString());
-            }
-
-            if (id != null)
-            {
-                httpApp.Context.Response.Write(id.ToString());
-            }
+            }      
         }
 
         public void Dispose()
